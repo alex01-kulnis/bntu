@@ -1,0 +1,58 @@
+use database;
+
+INSERT INTO `database`.`user` (`id`, `name`, `telephone`) VALUES ('1', 'name', '+375336541330');
+insert into `database`.`user`(`name`, `telephone`)
+values ( 'asd','+375336541330');
+
+/*user*/
+insert into `database`.`user`(`name`, `telephone`)
+values ( 'name','+375336541330');
+
+/*card*/
+insert into `database`.`card`(`number`, `UserId`)
+values ('5', 4);
+
+/*mark*/
+insert into `database`.`mark`(`mark`)
+values ('AUDI');
+
+insert into `database`.`mark`(`mark`)
+values ('Opel');
+
+/*transportuser*/
+insert into `database`.`transportuser`(`year_of_issue`, `goverment_number`, `UserId`, `MarkId`) 
+values ('18-02-2001','05B3 AK-7', 4, 1);
+
+insert into `database`.`transportuser`(`year_of_issue`, `goverment_number`, `UserId`, `MarkId`) 
+values ('18-02-2001','D2K7 BT-2', 4, 2);
+
+/*service*/
+insert into `database`.`service`(`name_service`, `price`) 
+values ('Замена масла', 5);
+
+insert into `database`.`service`(`name_service`, `price`) 
+values ('Технический осмотр', 200);
+
+/*employee*/
+insert into `database`.`employee`(`FIO`, `telephone`) 
+values ('Хартанович А. А.', '+375336852348');
+
+insert into `database`.`employee`(`FIO`, `telephone`) 
+values ('Тамко Г. В.', '+375297846213');
+
+/*employeeTransport*/
+insert into `database`.`employeetransport`(`goverment_number`)
+values ('KA283 JA-6');
+
+insert into `database`.`employeetransport`(`goverment_number`)
+values ('HD22I KA-2');
+
+/*order*/
+insert into `database`.`order`(`date`,`UserId`,`EmployeeId`,`ServiceId`,`EmployeeTransportId`) 
+values ('27.05.2022', 4, 1, 1, 1);
+
+/*resultorder*/
+insert into `database`.`resultorder`(`OrderId`, `result`) 
+values (1, 'Выполнено');
+
+

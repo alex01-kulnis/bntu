@@ -1,7 +1,13 @@
 const config = require('./src/config');
 const express = require('express');
 const cors = require('cors');
-const orderhRouter = require('./src/order/order.router');
+const orderRouter = require('./src/order/order.router');
+const userRouter = require('./src/user/user.router');
+const markRouter = require('./src/mark/mark.router');
+const serviceRouter = require('./src/service/service.router');
+const employeeRouter = require('./src/employee/employee.router');
+const transportEmpoyeeRouter = require('./src/transport-empoyee/transport-empoyee.router');
+const transportUserRouter = require('./src/transport-user/transport-user.router');
 const sequelize = require('./src/database/database');
 require('./src/database/models/model');
 
@@ -31,8 +37,13 @@ function bindRoutes(app) {
   const prefix = '/api';
   app.use(cors());
   app.use(express.json());
-  app.use(prefix, orderhRouter);
-  // app.use(prefix, currencyRouter);
+  app.use(prefix, orderRouter);
+  app.use(prefix, userRouter);
+  app.use(prefix, markRouter);
+  app.use(prefix, serviceRouter);
+  app.use(prefix, employeeRouter);
+  app.use(prefix, transportEmpoyeeRouter);
+  app.use(prefix, transportUserRouter);
   // app.use(prefix, authMiddleware, snapshotsRouter);
   // app.use(prefix, authMiddleware, walletsRouter);
   // app.use(prefix, authMiddleware, transactionCategoriesRouter);

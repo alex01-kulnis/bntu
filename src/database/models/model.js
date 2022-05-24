@@ -111,7 +111,43 @@ const modelOrder = Order.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    user: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    service: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    employee: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    employeeTransport: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    card: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     result: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    mark: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    goverment_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    year_of_issue: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    telephone: {
       type: DataTypes.STRING,
       allowNull: false,
     },
