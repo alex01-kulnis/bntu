@@ -119,6 +119,10 @@ const modelOrder = Order.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    price: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     employee: {
       type: DataTypes.STRING,
       allowNull: false,

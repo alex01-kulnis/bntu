@@ -17,6 +17,7 @@ class OrderService {
       card: data.card,
       user: data.user,
       service: data.service,
+      price: data.price,
       employee: data.employee,
       employeeTransport: data.employeeTransport,
       mark: data.mark,

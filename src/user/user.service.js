@@ -2,6 +2,13 @@ const { modelOrder, modelResultOrder, modelUser, modelMark, modelTransportUser }
 
 class UserService {
   async createUser(data) {
+    let existGovermentNumber = { goverment_number: data.goverment_number };
+    const candidateNumber = await modelTransportUser.findOne({
+      where: { goverment_number: existGovermentNumber.goverment_number },
+    });
+
+    if (candidateNumber) return 'Такой гос. номер уже существует';
+
     let user = { name: data.name, telephone: data.telephone };
     user = await modelUser.create(user);
 
@@ -16,13 +23,12 @@ class UserService {
         MarkId: result.dataValues.id,
       };
       transport = await modelTransportUser.create(transport);
-      return user;
+      return 'Пользователь создан';
     } else {
       let newMarka = {
         mark: data.mark,
       };
       const newMark = await modelMark.create(newMarka);
-      console.log(newMark);
       let transport = {
         year_of_issue: data.year_of_issue,
         goverment_number: data.goverment_number,
@@ -30,7 +36,7 @@ class UserService {
         MarkId: newMark.id,
       };
       transport = await modelTransportUser.create(transport);
-      return user;
+      return 'Пользователь создан';
     }
   }
 

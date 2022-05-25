@@ -9,6 +9,7 @@ class TransportUserController {
   async createTransport(req, res) {
     const data = req.body;
     const transport = await transportUserService.createTransport(data);
+    console.log(transport);
     res.json(transport);
   }
 }

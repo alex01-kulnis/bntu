@@ -7,6 +7,13 @@ class TransportUserService {
   }
 
   async createTransport(data) {
+    let existGovermentNumber = { goverment_number: data.goverment_number };
+    const candidateNumber = await modelTransportUser.findOne({
+      where: { goverment_number: existGovermentNumber.goverment_number },
+    });
+
+    if (candidateNumber) return 'Такой гос. номер уже существует';
+
     let nMark = { mark: data.mark };
     const result = await modelMark.findOne({ where: { mark: nMark.mark } });
 
@@ -18,13 +25,13 @@ class TransportUserService {
         MarkId: result.dataValues.id,
       };
       transport = await modelTransportUser.create(transport);
-      return transport;
+      return 'Транспорт добавлен';
     } else {
       let newMarka = {
         mark: data.mark,
       };
       const newMark = await modelMark.create(newMarka);
-      console.log(newMark);
+
       let transport = {
         year_of_issue: data.year_of_issue,
         goverment_number: data.goverment_number,
@@ -32,7 +39,7 @@ class TransportUserService {
         MarkId: newMark.id,
       };
       transport = await modelTransportUser.create(transport);
-      return transport;
+      return 'Транспорт добавлен';
     }
   }
 }
